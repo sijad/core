@@ -648,7 +648,7 @@ class User extends AbstractModel
         // standard 'member' group, as well as any other groups they've been
         // assigned to.
         if ($this->is_activated) {
-            $groupIds = array_merge($groupIds, [Group::MEMBER_ID], $this->groups->lists('id')->all());
+            $groupIds = array_merge($groupIds, [Group::MEMBER_ID], $this->groups->pluck('id')->all());
         }
 
         event(new PrepareUserGroups($this, $groupIds));
@@ -663,7 +663,7 @@ class User extends AbstractModel
      */
     public function getPermissions()
     {
-        return $this->permissions()->lists('permission')->all();
+        return $this->permissions()->pluck('permission')->all();
     }
 
     /**

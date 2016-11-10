@@ -71,7 +71,7 @@ class PostRepository
             $query->orderBy($field, $order);
         }
 
-        $ids = $query->lists('id')->all();
+        $ids = $query->pluck('id')->all();
 
         return $this->findByIds($ids, $actor);
     }
@@ -112,7 +112,7 @@ class PostRepository
      */
     public function filterVisibleIds(array $ids, User $actor)
     {
-        return $this->queryIds($ids, $actor)->lists('id')->all();
+        return $this->queryIds($ids, $actor)->pluck('id')->all();
     }
 
     /**
