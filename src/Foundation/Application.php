@@ -285,6 +285,17 @@ class Application extends Container implements ApplicationContract
     }
 
     /**
+     * Get the path to the storage directory.
+     *
+     * @return string
+     */
+    public function resourcePath()
+    {
+        // FIXME
+        return $this->basePath();
+    }
+
+    /**
      * Set the storage directory.
      *
      * @param string $path
