@@ -38,11 +38,9 @@ class MemoryCacheSettingsRepository implements SettingsRepositoryInterface
     {
         if (array_key_exists($key, $this->cache)) {
             return $this->cache[$key];
-        } elseif (! $this->isCached) {
-            return array_get($this->all(), $key, $default);
         }
 
-        return $default;
+        return array_get($this->all(), $key, $default);
     }
 
     public function set($key, $value)
