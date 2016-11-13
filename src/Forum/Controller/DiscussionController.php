@@ -64,7 +64,7 @@ class DiscussionController extends WebAppController
         $document = $this->getDocument($request->getAttribute('actor'), $params);
 
         $getResource = function ($link) use ($document) {
-            return array_first($document->included, function ($key, $value) use ($link) {
+            return array_first($document->included, function ($value) use ($link) {
                 return $value->type === $link->type && $value->id === $link->id;
             });
         };
