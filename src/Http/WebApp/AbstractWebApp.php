@@ -158,7 +158,12 @@ abstract class AbstractWebApp
      */
     private function addTranslations(WebAppView $view)
     {
-        $translations = array_get($this->locales->getTranslator()->getMessages(), 'messages', []);
+        $catalogue = $this->locales->getTranslator()->getCatalogue();
+        $translations = $catalogue->all();
+        while ($catalogue = $catalogue->getFallbackCatalogue()) {
+            $translations = array_replace_recursive($catalogue->all(), $translations);
+        }
+        $translations = array_get($translations, 'messages', []);
 
         $translations = $this->filterTranslations($translations);
 
