@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Core\Listener;
+namespace Flarum\User;
 
-use Flarum\Core\Exception\PermissionDeniedException;
-use Flarum\Core\Group;
 use Flarum\Event\UserWillBeSaved;
+use Flarum\Group\Group;
+use Flarum\User\Exception\PermissionDeniedException;
 use Illuminate\Contracts\Events\Dispatcher;
 
 class SelfDemotionGuard

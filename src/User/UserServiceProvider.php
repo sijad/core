@@ -87,6 +87,7 @@ class UserServiceProvider extends AbstractServiceProvider
         $events = $this->app->make('events');
 
         $events->subscribe('Flarum\User\EmailConfirmationMailer');
+        $events->subscribe('Flarum\User\SelfDemotionGuard');
         $events->subscribe('Flarum\User\UserMetadataUpdater');
         $events->subscribe('Flarum\User\UserPolicy');
 
