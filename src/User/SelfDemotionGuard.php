@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Core\Listener;
+namespace Flarum\User;
 
 use Flarum\Core\Exception\PermissionDeniedException;
 use Flarum\Core\Group;
