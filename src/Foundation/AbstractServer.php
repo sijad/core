@@ -167,10 +167,10 @@ abstract class AbstractServer
 
         $this->registerCache($app);
 
+        $app->register('AltThree\Bus\BusServiceProvider');
         $app->register('Flarum\Database\DatabaseServiceProvider');
         $app->register('Flarum\Settings\SettingsServiceProvider');
         $app->register('Flarum\Locale\LocaleServiceProvider');
-        $app->register('Illuminate\Bus\BusServiceProvider');
         $app->register('Illuminate\Filesystem\FilesystemServiceProvider');
         $app->register('Illuminate\Hashing\HashServiceProvider');
         $app->register('Illuminate\Mail\MailServiceProvider');

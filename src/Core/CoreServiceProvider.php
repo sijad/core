@@ -69,9 +69,12 @@ class CoreServiceProvider extends AbstractServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../../views', 'flarum');
 
-        $this->app->make('Illuminate\Contracts\Bus\Dispatcher')->mapUsing(function ($command) {
-            return get_class($command).'Handler@handle';
+        $dispatcher = $this->app->make('AltThree\Bus\Dispatcher');
+        $dispatcher->mapUsing(function ($command) {
+            return get_class($command).'Handler';
         });
+
+        $this->app->instance('Illuminate\Contracts\Bus\Dispatcher', $dispatcher);
 
         $this->app->make('flarum.gate')->before(function (User $actor, $ability, $model = null) {
             // Fire an event so that core and extension policies can hook into

@@ -21,6 +21,7 @@
     },
     "require": {
         "php": ">=5.6.0",
+        "alt-three/bus": "^2.0",
         "dflydev/fig-cookies": "^1.0.2",
         "doctrine/dbal": "^2.5",
         "components/font-awesome": "^4.6",
