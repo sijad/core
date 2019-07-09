@@ -86,7 +86,8 @@ class ForumServiceProvider extends AbstractServiceProvider
             $assets = $this->app->make('flarum.assets.factory')('forum');
 
             $assets->js(function (SourceCollector $sources) {
-                $sources->addFile(__DIR__.'/../../js/dist/forum.js');
+                $sources->addFile(__DIR__.'/../../newjs/dist/forum.js');
+                $sources->addFile(__DIR__.'/../../newjs/packages/linksExtension/dist/forum.js');
                 $sources->addString(function () {
                     return $this->app->make(Formatter::class)->getJs();
                 });

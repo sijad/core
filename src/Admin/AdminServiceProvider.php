@@ -79,7 +79,7 @@ class AdminServiceProvider extends AbstractServiceProvider
             $assets = $this->app->make('flarum.assets.factory')('admin');
 
             $assets->js(function (SourceCollector $sources) {
-                $sources->addFile(__DIR__.'/../../js/dist/admin.js');
+                $sources->addFile(__DIR__.'/../../newjs/dist/admin.js');
             });
 
             $assets->css(function (SourceCollector $sources) {
